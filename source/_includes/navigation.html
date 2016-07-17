@@ -1,9 +1,9 @@
 <nav id="dl-menu" class="dl-menuwrapper" role="navigation">
 	<button class="dl-trigger">Open Menu</button>
 	<ul class="dl-menu">
-		<li><a href="/">首页</a></li>
+		<li><a href="/">首 页</a></li>
 		<li>
-			<a href="#">关于</a>
+			<a href="#">关 于</a>
 			<ul class="dl-submenu">
 				<li>
 					<li><a href="{{ root_url }}/about">{{ site.author }}</a></li>
@@ -27,12 +27,12 @@
 			</ul><!-- /.dl-submenu -->
 		</li>
 		<li>
-			<a href="#">博客</a>
+			<a href="#">博 客</a>
 			<ul class="dl-submenu">
 				<li><a href="/posts/">所有博客</a></li>
 				<li><a href="/categories/">分类</a></li>
 			</ul>
 		</li>
-		{% for link in site.links %}<li>{% if link.external %}<a href="{{ link.url }}">{{ link.title }}</a>{% else %}<a href="{{ root_url }}{{ link.url }}">{{ link.title }}</a>{% endif %}</li>{% endfor %}
+		{% for link in site.links %}<li>{% if link.external %}<a href="{{ link.url }}">返回</a>{% else %}<a href="{{ root_url }}{{ link.url }}">返回</a>{% endif %}</li>{% endfor %}
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
