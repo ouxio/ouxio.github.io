@@ -3,13 +3,13 @@
 	<ul class="dl-menu">
 		<li><a href="/">首  页</a></li>
 		<li>
-			<a href="{{ root_url }}/about">关  于</a>
-		</li>
-		<li>
 			<a href="/posts/">博  客</a>
 		</li>
 		<li>
 			<a href="/categories/">分  类</a>
+		</li>
+		<li>
+			<a href="{{ root_url }}/about">关  于</a>
 		</li>
 		{% for link in site.links %}<li>{% if link.external %}<a href="{{ link.url }}">{{ link.title }}</a>{% else %}<a href="{{ root_url }}{{ link.url }}">{{ link.title }}</a>{% endif %}</li>{% endfor %}
 	</ul><!-- /.dl-menu -->
