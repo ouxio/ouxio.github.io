@@ -1,0 +1,38 @@
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">首页</a></li>
+		<li>
+			<a href="#">关于</a>
+			<ul class="dl-submenu">
+				<li>
+					<li><a href="{{ root_url }}/about">{{ site.author }}</a></li>
+				</li>
+				{% if site.learn_more_link %}<li><a href="{{ site.learn_more_link }}">Learn More</a></li>{% endif %}
+				{% if site.email %}<li>
+					<a href="mailto:{{ site.email }}"><i class="fa fa-envelope"></i> Email</a>
+				</li>{% endif %}
+				{% if site.twitter_user %}<li>
+					<a href="https://twitter.com/{{ site.twitter_user }}"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>{% endif %}
+				{% if site.googleplus_user %}<li>
+					<a href="https://plus.google.com/{{ site.googleplus_user }}"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>{% endif %}
+				{% if site.github_user %}<li>
+					<a href="https://github.com/{{ site.github_user }}"><i class="fa fa-github"></i> GitHub</a>
+				</li>{% endif %}
+				{% if site.linkedin_profile %}<li>
+					<a href="{{ site.linkedin_profile }}"><i class="fa fa-linkedin"></i> LinkedIn</a>
+				</li>{% endif %}
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">博客</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">所有博客</a></li>
+				<li><a href="/categories/">分类</a></li>
+			</ul>
+		</li>
+		{% for link in site.links %}<li>{% if link.external %}<a href="{{ link.url }}">{{ link.title }}</a>{% else %}<a href="{{ root_url }}{{ link.url }}">{{ link.title }}</a>{% endif %}</li>{% endfor %}
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
