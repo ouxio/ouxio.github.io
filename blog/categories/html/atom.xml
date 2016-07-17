@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Html | Xio's Life]]></title>
   <link href="http://ouxio.github.io/blog/categories/html/atom.xml" rel="self"/>
   <link href="http://ouxio.github.io/"/>
-  <updated>2016-07-17T14:16:57+08:00</updated>
+  <updated>2016-07-17T14:34:49+08:00</updated>
   <id>http://ouxio.github.io/</id>
   <author>
     <name><![CDATA[Xio]]></name>
@@ -40,7 +40,7 @@
 <h3>你好，世界  这是我的第一个博客，请大家多多关照</h3>
 
 <pre><code class="java This is a java">public void hello(){
-    Ssysem.out.println("hello blog");
+    System.out.println("hello blog");
 }
 </code></pre>
 ]]></content>
