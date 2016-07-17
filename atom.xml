@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Xio's Life]]></title>
+  <link href="http://ouxio.github.io/atom.xml" rel="self"/>
+  <link href="http://ouxio.github.io/"/>
+  <updated>2016-07-17T14:16:57+08:00</updated>
+  <id>http://ouxio.github.io/</id>
+  <author>
+    <name><![CDATA[Xio]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Xio 的第二个博客]]></title>
+    <link href="http://ouxio.github.io/blog/2016/07/17/xio-second-blog/"/>
+    <updated>2016-07-17T13:43:12+08:00</updated>
+    <id>http://ouxio.github.io/blog/2016/07/17/xio-second-blog</id>
+    <content type="html"><![CDATA[<h2>这是我的第二个博客，请大家多多关照</h2>
+
+<h3>你好，博客  我是xio</h3>
+
+<blockquote><p>这是一个引用</p></blockquote>
+
+<h3>下面来展示一段代码 <code>printf("hello world!");</code></h3>
+
+<h4>总的来说还不错吧</h4>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Xio 的第一个博客,你好 世界]]></title>
+    <link href="http://ouxio.github.io/blog/2016/07/17/xio-first-blog/"/>
+    <updated>2016-07-17T13:38:52+08:00</updated>
+    <id>http://ouxio.github.io/blog/2016/07/17/xio-first-blog</id>
+    <content type="html"><![CDATA[<h2>这是我的第一个博客，请大家多多关照</h2>
+
+<h3>你好，世界  这是我的第一个博客，请大家多多关照</h3>
+
+<figure class='code'><figcaption><span>This is a java</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hello</span><span class="o">(){</span>
+</span><span class='line'>  <span class="n">Ssysem</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;hello blog&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+</feed>
