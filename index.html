@@ -16,7 +16,8 @@
 
 
 
-<meta name="description" content="July 17, 2016 Xio Xio 的第二个博客 这是我的第二个博客，请大家多多关照 你好，博客 我是xio 这是一个引用 下面来展示一段代码 printf("hello world!"); 总的来说还不错吧 July 17, 2016 Xio Xio 的第一个博客,你好 世界 &hellip;">
+<meta name="description" content="July 19, 2016 Xio 搭建octopress环境 # Octopress介绍 　　Octopress是一个基于Ruby的开源Blogging Framework，它不仅是一款优秀的静态化博客系统，也是一个本地化的博客系统。主要的优点如下： 命令行操作
+纯文本写博客（图片，视频等） &hellip;">
 
 <meta name="keywords" content=" ">
 
@@ -34,7 +35,8 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://ouxio.github.io">
 <meta property="og:title" content="Xio's Life">
-<meta property="og:description" content="July 17, 2016 Xio Xio 的第二个博客 这是我的第二个博客，请大家多多关照 你好，博客 我是xio 这是一个引用 下面来展示一段代码 printf("hello world!"); 总的来说还不错吧 July 17, 2016 Xio Xio 的第一个博客,你好 世界 &hellip;">
+<meta property="og:description" content="July 19, 2016 Xio 搭建octopress环境 # Octopress介绍 　　Octopress是一个基于Ruby的开源Blogging Framework，它不仅是一款优秀的静态化博客系统，也是一个本地化的博客系统。主要的优点如下： 命令行操作
+纯文本写博客（图片，视频等） &hellip;">
 
   <meta property="og:image" content="/images/threaded-blue-on-black-cropped.jpg">
 
@@ -104,8 +106,8 @@
 <header>
   <div class="entry-meta">
     <span class="entry-date date published updated">
-      <time datetime="2016-07-17T13:43:12+08:00">
-        <a href="/blog/2016/07/17/xio-second-blog/">July 17, 2016</a>
+      <time datetime="2016-07-19T13:39:42+08:00">
+        <a href="/blog/2016/07/19/build-octopress/">July 19, 2016</a>
       </time>
     </span>
     <span class="author vcard">
@@ -117,71 +119,146 @@
   </div><!-- /.entry-meta -->
   
     <h1 class="entry-title">
-      <a href="/blog/2016/07/17/xio-second-blog/" rel="bookmark" title="Xio 的第二个博客" itemprop="url">Xio 的第二个博客</a>
+      <a href="/blog/2016/07/19/build-octopress/" rel="bookmark" title="搭建octopress环境" itemprop="url">搭建octopress环境</a>
     </h1>
   
 </header>
 
 <div class="entry-content">
-  <h2>这是我的第二个博客，请大家多多关照</h2>
+  <h2><font color="#008000">#</font> Octopress介绍</h2>
 
-<h3>你好，博客  我是xio</h3>
+<p>　　Octopress是一个基于Ruby的开源Blogging Framework，它不仅是一款优秀的静态化博客系统，也是一个本地化的博客系统。主要的优点如下：</p>
 
-<blockquote><p>这是一个引用</p></blockquote>
-
-<h3>下面来展示一段代码 <code>printf("hello world!");</code></h3>
-
-<h4>总的来说还不错吧</h4>
-
-  
-  
-</div><!-- /.entry-content -->
-
-
-
+<ol>
+<li>命令行操作</li>
+<li>纯文本写博客（图片，视频等）</li>
+<li>定制性高</li>
+<li>纯静态</li>
+<li>结合github的版本化管理</li>
+<li>迁移成本低</li>
+<li>简洁的Ruby框架</li>
+<li>使用Markdown语法</li>
+</ol>
 
 
-</article><!-- /.hentry -->
+<h3>工作流程与目录结构</h3>
 
-<article class="hentry">
-  
+<p>　　在下载安装完之后我们主要用到的几个文件夹为<code>source</code>和<code>public</code>，我们的源文件会存储在<code>source</code>文件夹下，然后通过<code>generate</code>命令生成静态的博客网页文件，存储在<code>public</code>文件夹下。这也是我们的一个工作流程。我们先有这样一个概念，往下会教怎么安装octopress。
+<img src="http://7xwg81.com1.z0.glb.clouddn.com/octopress_01.png" alt="目录结构" /></p>
 
+<h2><font color="#008000">#</font> 搭建环境</h2>
 
+<p>　　由刚才的介绍可以知道，octopress是基于Ruby的一个框架，所以首先需要搭建Ruby的环境，但是由于国内某些原因（你懂的），使得搭建整个环境变得非常繁琐，甚至失败，所以我提供了搭建octopress所需要的所有工具安装包(只有64位的，32位的臣妾办不到呀)，下载链接在博客最下方，有需要的可以下载使用。</p>
 
-<header>
-  <div class="entry-meta">
-    <span class="entry-date date published updated">
-      <time datetime="2016-07-17T13:38:52+08:00">
-        <a href="/blog/2016/07/17/xio-first-blog/">July 17, 2016</a>
-      </time>
-    </span>
-    <span class="author vcard">
-      <span class="fn">
-        <a href="" title="About Xio">Xio</a>
-      </span>
-    </span>
-    
-  </div><!-- /.entry-meta -->
-  
-    <h1 class="entry-title">
-      <a href="/blog/2016/07/17/xio-first-blog/" rel="bookmark" title="Xio 的第一个博客,你好 世界" itemprop="url">Xio 的第一个博客,你好 世界</a>
-    </h1>
-  
-</header>
+<h3>1.安装git</h3>
 
-<div class="entry-content">
-  <h2>这是我的第一个博客，请大家多多关照</h2>
+<p>如果你的电脑已经有git的话就不用安装了，这里用的是1.9版本。打开<code>Git-1.9.5-preview20150319.exe</code>，选择路径，其余的步骤默认安装就好。关于git的安装百度一大把，这里不再详细说明。</p>
 
-<h3>你好，世界  这是我的第一个博客，请大家多多关照</h3>
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/git03.png" alt="git_03" /></p>
 
-<figure class='code'><figcaption><span>This is a java</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hello</span><span class="o">(){</span>
-</span><span class='line'>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;hello blog&quot;</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/git04.png" alt="git_04" /></p>
 
+<p>安装完后，鼠标右键桌面空白地方，可以看到Git Bash..Git GUI什么的就是安装成功。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/gitbase.png" alt="git_success" /></p>
+
+<h3>2.安装Ruby</h3>
+
+<p>在下载完解压后，打开Ruby的安装程序<code>rubyinstaller-2.1.3-x64.exe</code>，选择路径，需要提下的是，在安装过程第二步中，必须要勾选第二个，把Ruby添加到系统路径中去。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/ruvy02.png" alt="ruby_02" /></p>
+
+<p>安装Ruby还是相对简单的，接着就是安装DevKit。</p>
+
+<h3>3.安装DevKit</h3>
+
+<p>打开<code>DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe</code>程序，其实就是一个压缩包，打开解压到自己的路径下，时间有点久，耐心等候一下。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/devkit01.png" alt="devkit_01" /></p>
+
+<h3>4.连接DevKit与Ruby之间关系</h3>
+
+<p>　　进入到DevKit文件夹下（注意必须是DevKit的安装目录下，因为我是安装在E：\DevKit下的，目录看自己定），鼠标右键打开Git Bash，输入</p>
+
+<p><code>ruby dk.rb init</code></p>
+
+<p>初始化dk.rb文件。执行完后，在操作目录下会生成一个<code>config.yml</code>的文件。用编辑器（Editplus或者Nodepad++都可以）打开确认Ruby的安装路径是否在文件末尾，如果没有就按这种格式<code>- E:/Ruby21-x64</code> 手动添加上去，注意一下格式。减号与路径之间有一个空格，如果是直接复制文件夹路径的，需要把反斜杠<code>\</code>改成斜杠<code>/</code>，比如<code>E:\Ruby21-x64</code>改成<code>E:/Ruby21-x64</code>，这也是一大坑之一。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/config.png" alt="config" /></p>
+
+<p>确认Ruby的路径正确后，回到GitBash上，继续输入</p>
+
+<p><code>ruby dk.rb install</code></p>
+
+<p>执行安装。整个执行过程如下：</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/ruby_devkit.png" alt="ruby_devkit" /></p>
+
+<p>输出以上的<code>[INFO]</code>信息即为成功，如果输出其他乱七八糟的东西大多数是因为<code>cofig.yml</code>文件里面的Ruby路径出错，请仔细检查。</p>
+
+<h3>5.安装Octopress</h3>
+
+<p>　　这下进入正题，终于来到安装octopress这块了，如果把这一步安装成功，可以说整个安装环境就完成了一半。</p>
+
+<p>　　打开<a href="http://octopress.org/">Octopress</a>的官网，拉到最下面，然后点击<code>start here</code>，里面有octopress的安装教程，嫌麻烦也可以直接看这。</p>
+
+<p>　　首先打开一个盘符，尽量不要在C盘，可以D盘或者E盘等，鼠标右键继续打开GitBash。输入</p>
+
+<p><code>git clone git://github.com/imathis/octopress.git octopress</code></p>
+
+<p>把octopress克隆到我们的盘符下，稍等片刻。克隆成功后，就会在我们的操作目录下生成一个octopress文件夹。我们在GitBash上继续输入</p>
+
+<p><code>cd octopress</code></p>
+
+<p>进入到该目录，然后输入</p>
+
+<p><code>gem sources -a http://gems.ruby-china.org</code></p>
+
+<p>把gem的镜像源修改成国内的，注意这里的<code>http://gems.ruby-china.org</code>一定不能写错，没有<code>www.</code>，也不是<code>https</code>协议！我们再把gem默认的镜像源删掉，输入</p>
+
+<p><code>gem sources -r https://rubygems.org/</code></p>
+
+<p>这里的路径也不能写错。最后为了安全起见，输入<code>gem sources -l</code>查看源列表，确认只有一条<code>http://gems.ruby-china.org</code>镜像源。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/gem_sources.png" alt="gem_sources" /></p>
+
+<p>确认无误后，继续输入</p>
+
+<p><code>gem install bundler</code></p>
+
+<p>来安装bundler，输入命令后也许会出现一些怪异的现象(比如gitbash无响应了)，不要怀疑，相信自己是对的(然而笔者我ctrl+c停止执行，傻傻地去找无响应的原因了..)。原因上面说了，因为国内某些原因，视网络环境而定等待的时间偏长。安装完成后。继续输入</p>
+
+<p><code>bundle install</code></p>
+
+<p>来安装我们需要的工具，这里要注意，不要自以为是把<code>bundle</code>写成<code>bundler</code>（是的，说的就是我），这里安装的时间也偏长，这段时间可以去喝杯咖啡压压惊。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/Bundle_install.png" alt="Bundle_install" /></p>
+
+<p>　　这里说下题外话，因为octopress是基于jeky的(jeky也是一个博客框架)，所以会安装jeky的一些组件，还有就是sass是用来生成css样式文件的。感兴趣的可以再去了解。</p>
+
+<p>　　以上都安装完后，环境就差不多了。我们一开始在介绍octopress时提到过，通过<code>rake generate</code>会在octopress\public的文件夹内生成博客网页。那我们就用<code>rake generate</code>命令测试下，有的可能会提示rake未安装，那么就先输入<code>rake install</code>安装一下，再执行以上命令。</p>
+
+<p><code>rake install</code></p>
+
+<p><code>rake generate</code></p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/generate_install.png" alt="generate_install" />
+　　生成后，你也行会迫不及待地打开一个index.html文件查看，但不幸的告诉你并不是这样查看的。必须先要在本地建立一个服务器，输入</p>
+
+<p><code>rake preview</code></p>
+
+<p>提示一下，默认是选择4000端口的，如果你电脑的4000端口已经被占用，那么就会失败。在看到pid，port等信息后就表示成功。在浏览器上输入<code>localhost：4000</code>等待一段时间。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/rake_preview.png" alt="rake_preview" /></p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/firstblog.png" alt="firstblog" />
+　　看到默认的网页My Octopress Blog就表示整个环境搭建成功。可能你会抱怨，为什么只是一个静态的网页要加载辣么长时间？下一篇将会讲解，并且说明octopress的配置以及如何生成一篇博客。</p>
+
+<p>如果有错，或者有问题的欢迎在下方评论提出，谢谢。</p>
+
+<hr />
+
+<h5>下载安装包：<a href="http://pan.baidu.com/s/1pLH5Rtx">百度网盘</a>　　密码：knng</h5>
 
   
   

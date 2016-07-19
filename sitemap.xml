@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://ouxio.github.io/blog/2016/07/17/xio-second-blog/</loc>
-<lastmod>2016-07-17T13:43:12+08:00</lastmod>
-</url>
-<url>
-<loc>http://ouxio.github.io/blog/2016/07/17/xio-first-blog/</loc>
-<lastmod>2016-07-17T13:38:52+08:00</lastmod>
+<loc>http://ouxio.github.io/blog/2016/07/19/build-octopress/</loc>
+<lastmod>2016-07-19T13:39:42+08:00</lastmod>
 </url>
 <url>
 <loc>http://ouxio.github.io/archives/</loc>
@@ -27,9 +23,6 @@
 <loc>http://ouxio.github.io/posts/</loc>
 </url>
 <url>
-<loc>http://ouxio.github.io/blog/categories/html/</loc>
-</url>
-<url>
-<loc>http://ouxio.github.io/blog/categories/css/</loc>
+<loc>http://ouxio.github.io/blog/categories/octopress/</loc>
 </url>
 </urlset>
