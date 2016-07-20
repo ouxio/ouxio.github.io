@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta http-equiv="cleartype" content="on">
 
-<title>Octopress下新建单页面于博客 - Xio's Life</title>
+<title>Octopress下新建单页面与博客 - Xio's Life</title>
 <meta name="author" content="Xio">
 
 
@@ -33,7 +33,7 @@
 <meta property="og:local" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://ouxio.github.io/blog/2016/07/20/handle-octopress">
-<meta property="og:title" content="octopress下新建单页面于博客">
+<meta property="og:title" content="octopress下新建单页面与博客">
 <meta property="og:description" content="# Octopress的一些基本操作 1. 提高加载速度 　　上一篇中提出，为什么只是一个静态的网页，在没有大量的图片、视频资源，也不用访问数据库的情况下需要加载这么长时间。打开浏览器，按F12打开控制台，点击Network观察加载数据。 查看后终于发现罪魁祸首，原来就是这个jquery文件， &hellip;">
 
   <meta property="og:image" content="">
@@ -86,7 +86,7 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="/blog/2016/07/20/handle-octopress/" rel="bookmark" title="octopress下新建单页面于博客">octopress下新建单页面于博客</a></h1>
+          <h1 class="entry-title"><a href="/blog/2016/07/20/handle-octopress/" rel="bookmark" title="octopress下新建单页面与博客">octopress下新建单页面与博客</a></h1>
         
         <h2>July 20, 2016</h2>
       </div><!-- /.header-title-wrap -->
@@ -112,7 +112,7 @@
 
 <p><code>rake new_page['pageName']</code></p>
 
-<p>来创建一个新的单页面。执行完命令后，在<code>octopress\source</code>文件夹下会新生成一个文件夹，文件夹的名字就是你的命令中的pageName，其中里面只包含一个<code>index.markdown</code>的文件。这个markdown文件怎么编写，和博客网页又有什么关系呢，下面会说明。</p>
+<p>来创建一个新的单页面。其中pageName不能包含中文、特殊符号，尽量也不要空格。执行完命令后，在<code>octopress\source</code>文件夹下会新生成一个文件夹，文件夹的名字就是你的命令中的pageName，其中里面只包含一个<code>index.markdown</code>的文件。这个markdown文件怎么编写，和博客网页又有什么关系呢，下面会说明。</p>
 
 <h3>3. 新建博客</h3>
 
@@ -122,18 +122,24 @@
 
 <p>命令来建立博客，其中titleName不能包含中文、特殊符号，尽量也不要空格。执行完这条命令后，在<code>octopress/source/_post</code>文件夹下会生成一个<code>titleName.markdown</code>的文件，这个markdown文件需要用markdown语法来编写。采用markdown体现了octopress框架的设计理念，它想使用者纯文本编写博客，包括图片、视频等资源都可以用文本生成，让我们注重博客的内容，而不是排版等问题，提高博客的质量。</p>
 
-<h2><font color="#008000">#</font> MarkDown代码高亮</h2>
+<h2><font color="#008000">#</font> 编写MarkDown</h2>
 
-<p>　　markdown文件本身可以用编辑器(Editplus或者Nodepad++都可以)打开编辑，也可以用上篇博客中提供的安装包中的markdownpad打开，这款markdownpad的优点就是可以实时预览效果，安装就不再多说了，win10的用户安装完后打开编辑可能会出bug，此时再安装工具包中的awesomium_sdk就行了。关于markdown语法可以查看这里<a href="http://">(点击我)</a>的一篇博客学习,学过html的人几分钟就可以上手。</p>
+<p>　　markdown文件本身可以用编辑器(Editplus或者Nodepad++都可以)打开编辑，也可以用上篇博客中提供的安装包中的markdownpad打开，这款markdownpad的优点就是可以实时预览效果，安装就不再多说了，win10的用户安装完后打开编辑可能会出bug，此时再安装工具包中的awesomium_sdk就行了。打开markdown文件可以看到一些初始化信息，这些信息可以再手动更改，尽量不要删除。</p>
 
-<p>　　对于程序猿来说还是特别说明处理代码块的问题，首先插入代码的语法有三种：</p>
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/markdownaction.png" alt="markdownfirst" /></p>
+
+<p>　　解析一下，其中layout是生成这个网页文件时采取什么布局，这里默认是post，因为我们就是新建的博客，如果是单页面，那么这里就是page。title默认是命令新建博客时的titleName，开始提过不能设置中文是因为后期会根据titleName来决定访问路径，而此时在markdown文件的title是可以修改成自己博客的标题的。date就是生成博客的时间，尽量按照默认的格式不要改。还有就是comments为true，设置允许评论，博客时默认true，而单页面默认是false，也就是不允许评论。categories是这篇博客的分类，可以允许设置多个分类，只要分类之间用逗号分隔开就行。</p>
+
+<p>　　了解初始化信息后，可以在下面编写博客的内容。关于markdown语法可以查看这里<a href="https://www.zybuluo.com/AntLog/note/63228">https://www.zybuluo.com/AntLog/note/63228</a> 的一篇博客学习,学过html的人几分钟就可以上手。</p>
+
+<p>　　作为程序猿还是特别说明处理代码块的问题，首先插入代码的语法有三种：</p>
 
 <pre><code>    void hello(){
         printf("hello world");
     }
 </code></pre>
 
-<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/one.png" alt="one" /></p>
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/onef.png" alt="one" /></p>
 
 <p>第一，在每一行的开始按一下Tab键，然后输入代码。优点是快速方便，缺点是不支持语法高亮和代码行数，这对程序猿来说无疑是致命打击。</p>
 
@@ -146,22 +152,24 @@
 
 <p><img src="http://7xwg81.com1.z0.glb.clouddn.com/two.png" alt="two" /></p>
 
-<p>第二，用上下三个反引号(英文状态下Esc下面一个按键)包含住代码。相对上面一种的优点是不用Tab键，它可以支持代码行数、根据指定语言显示语法高亮，还支持代码标题和链接。</p>
+<p>第二，用上下三个反引号(英文状态下Esc下面一个的按键)包含住代码。可以在开始的三个反引号后指定语言，代码标题和链接。相对上面一种的优点是不用Tab键，它不仅支持显示代码行数，而且还支持语法高亮。</p>
 
-<pre><code>&lt;div class='bogus-wrapper'&gt;&lt;notextile&gt;&lt;figure class='code'&gt;&lt;figcaption&gt;&lt;span&gt;This is a c&lt;/span&gt;&lt;a href='http://www.baidu.com'&gt;link &lt;/a&gt;&lt;/figcaption&gt;&lt;div class="highlight"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="gutter"&gt;&lt;pre class="line-numbers"&gt;&lt;span class='line-number'&gt;1&lt;/span&gt;
-</code></pre>
-
-<p><span class='line-number'>2</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'>        <span class="kt">void</span> <span class="nf">hello</span> <span class="p">(){</span>
-</span><span class='line'>          <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>  <br/>
-</span><span class='line'><br/>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-<img src="http://7xwg81.com1.z0.glb.clouddn.com/two.png" alt="three" /></p>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">codeblock</span> <span class="nl">lang</span><span class="p">:</span><span class="n">c</span> <span class="n">This</span> <span class="n">is</span> <span class="n">a</span> <span class="n">c</span> <span class="nl">http</span><span class="p">:</span><span class="c1">//www.baidu.com link %}</span>
+</span><span class='line'>  <span class="kt">void</span> <span class="n">hello</span> <span class="p">(){</span>
+</span><span class='line'>      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">endcodeblock</span> <span class="o">%</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>第三种，写法上和第二种不一样，但是它的效果和第二种是相同的。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/two.png" alt="three" /></p>
+
+<p>第三种，写法上和第二种不一样。用一对大括号后跟百分号组成包含代码的开始标签，开始标签内可以设置语言类型以及标题等，以一对大括号后跟百分号组成结束标签。它的效果和第二种是相同的。</p>
 
 <p>在编写完markdown文件后，想要在浏览器上看到效果，必须先用<code>rake generate</code>重新生成网页，再<code>rake preview</code>进行预览。还需提醒的是，虽然markdown代码本身像html一样，对于错误不敏感。但是当我们用<code>rake generate</code>生成网页时，一旦出现语法错误，那么生成网页就会失败，访问时也会出现空白页。可能你在以上使用这第二方法处理代码，进行浏览器预览时就出现空白页，并且gitbash中会提示404的错误。如下：</p>
 
@@ -201,7 +209,7 @@
 
 <h3>2.安装pip工具</h3>
 
-<p> 　　网上很多资料都说使用 <code>easy_install</code> 安装<code>Pygments</code>，但那种方法已经过时，<code>pip</code>早已成为<code>easy_install</code>的替代品。从 <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip">http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip</a> 下载pip最新的安装文件 <code>pip-8.1.2-py2.py3-none-any.whl</code>（在我提供的安装包中也有） ，放在Python根目录中。打开cmd窗口，进入到Python的目录下，执行</p>
+<p> 　　网上很多资料都说使用 <code>easy_install</code> 安装<code>Pygments</code>，但那种方法已经过时，<code>pip</code>早已成为<code>easy_install</code>的替代品。从 <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip">http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip</a>下载pip最新的安装文件 <code>pip-8.1.2-py2.py3-none-any.whl</code>（在我提供的安装包中也有） ，放在Python根目录中。打开cmd窗口，进入到Python的目录下，执行</p>
 
 <p><code>python pip-8.1.2-py2.py3-none-any.whl/pip install pip-8.1.2-py2.py3-none-any.whl</code></p>
 
@@ -235,15 +243,13 @@
 
 <h3>在此要感谢以下博客提供参考：</h3>
 
-<p><a href="http://lutaf.com/markdown-simple-usage.htm">http://lutaf.com/markdown-simple-usage.htm</a></p>
-
-<p><a href="http://blog.csdn.net/kong5090041/article/details/38408211">http://blog.csdn.net/kong5090041/article/details/38408211</a></p>
-
-<p><a href="http://pygments.org/">http://pygments.org/</a></p>
+<p><a href="http://lutaf.com/markdown-simple-usage.htm">http://lutaf.com/markdown-simple-usage.htm</a>
+<a href="http://blog.csdn.net/kong5090041/article/details/38408211">http://blog.csdn.net/kong5090041/article/details/38408211</a>
+<a href="http://pygments.org/">http://pygments.org/</a></p>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="/categories/#octopress" title="Pages tagged octopress" class="tag">octopress</a></span>
-        <span><a href="/blog/2016/07/20/handle-octopress/" rel="bookmark" title="octopress下新建单页面于博客">octopress下新建单页面于博客</a> was published on <span class="entry-date date published updated"><time datetime="2016-07-20T13:56:26+08:00">July 20, 2016</time></span></span>
+        <span><a href="/blog/2016/07/20/handle-octopress/" rel="bookmark" title="octopress下新建单页面与博客">octopress下新建单页面与博客</a> was published on <span class="entry-date date published updated"><time datetime="2016-07-20T13:56:26+08:00">July 20, 2016</time></span></span>
         
         <span class="author vcard"><span class="fn"><a href="" title="About Xio">Xio</a></span></span>
         
@@ -270,7 +276,7 @@
 		<div id="disqus_thread" aria-live="polite">
 			<h3>回复评论</h3>
 			<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="/blog/2016/07/20/handle-octopress" data-title="octopress下新建单页面于博客" data-url="http://ouxio.github.io/blog/2016/07/20/handle-octopress/"></div>
+	<div class="ds-thread" data-thread-key="/blog/2016/07/20/handle-octopress" data-title="octopress下新建单页面与博客" data-url="http://ouxio.github.io/blog/2016/07/20/handle-octopress/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
