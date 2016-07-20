@@ -16,8 +16,7 @@
 
 
 
-<meta name="description" content="July 19, 2016 Xio 搭建octopress环境 # Octopress介绍 　　Octopress是一个基于Ruby的开源Blogging Framework，它不仅是一款优秀的静态化博客系统，也是一个本地化的博客系统。主要的优点如下： 命令行操作
-纯文本写博客（图片，视频等） &hellip;">
+<meta name="description" content="July 20, 2016 Xio Octopress下新建单页面于博客 # Octopress的一些基本操作 1. 提高加载速度 　　上一篇中提出，为什么只是一个静态的网页，在没有大量的图片、视频资源，也不用访问数据库的情况下需要加载这么长时间。打开浏览器，按F12打开控制台， &hellip;">
 
 <meta name="keywords" content=" ">
 
@@ -35,8 +34,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://ouxio.github.io">
 <meta property="og:title" content="Xio's Life">
-<meta property="og:description" content="July 19, 2016 Xio 搭建octopress环境 # Octopress介绍 　　Octopress是一个基于Ruby的开源Blogging Framework，它不仅是一款优秀的静态化博客系统，也是一个本地化的博客系统。主要的优点如下： 命令行操作
-纯文本写博客（图片，视频等） &hellip;">
+<meta property="og:description" content="July 20, 2016 Xio Octopress下新建单页面于博客 # Octopress的一些基本操作 1. 提高加载速度 　　上一篇中提出，为什么只是一个静态的网页，在没有大量的图片、视频资源，也不用访问数据库的情况下需要加载这么长时间。打开浏览器，按F12打开控制台， &hellip;">
 
   <meta property="og:image" content="/images/threaded-blue-on-black-cropped.jpg">
 
@@ -97,6 +95,192 @@
 
   <div id="main" role="main">
     
+
+<article class="hentry">
+  
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2016-07-20T13:56:26+08:00">
+        <a href="/blog/2016/07/20/handle-octopress/">July 20, 2016</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Xio">Xio</a>
+      </span>
+    </span>
+    
+  </div><!-- /.entry-meta -->
+  
+    <h1 class="entry-title">
+      <a href="/blog/2016/07/20/handle-octopress/" rel="bookmark" title="Octopress下新建单页面于博客" itemprop="url">Octopress下新建单页面于博客</a>
+    </h1>
+  
+</header>
+
+<div class="entry-content">
+  <h2><font color="#008000">#</font> Octopress的一些基本操作</h2>
+
+<h3>1. 提高加载速度</h3>
+
+<p>　　上一篇中提出，为什么只是一个静态的网页，在没有大量的图片、视频资源，也不用访问数据库的情况下需要加载这么长时间。打开浏览器，按<code>F12</code>打开控制台，点击Network观察加载数据。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/preview.png" alt="preview" /></p>
+
+<p>查看后终于发现罪魁祸首，原来就是这个jquery文件，加载了足足21秒，21秒可以干什么？国足都可以拿下一球了。知道了问题的根源后，就要去解决问题。在octopress框架下，主要操作的就是source文件夹。在<code>octopress\source\_includes</code>文件夹下找到<code>head.html</code>文件打开，在25行位置发现jquery的在线加载路径，一看是google..不由感叹，真是万里长城永不倒呀。修改为可加载的路径。可以修改到国内的，比如百度，或者jquery官网的：<code>//code.jquery.com/jquery-1.9.1.min.js</code>。为了避免不必要的问题，jquery的版本最好也是1.9.1的。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/changeJquery.png" alt="change_jquery" /></p>
+
+<p>然后再执行<code>rake generate</code>重新生成网页，记住，每次修改过文件最好都重新生成网页文件。再通过<code>rake preview</code>预览，这次会发现加载远远比第一次要快得多。</p>
+
+<h3>2.新建单页面</h3>
+
+<p>　　在新建博客之前，先来认识下单页面。单页面可以理解为在导航栏中的一个导航，比如"关于"等其他页面，它不是博客。通过</p>
+
+<p><code>rake new_page['pageName']</code></p>
+
+<p>来创建一个新的单页面。执行完命令后，在<code>octopress\source</code>文件夹下会新生成一个文件夹，文件夹的名字就是你的命令中的pageName，其中里面只包含一个<code>index.markdown</code>的文件。这个markdown文件怎么编写，和博客网页又有什么关系呢，下面会说明。</p>
+
+<h3>3. 新建博客</h3>
+
+<p>　　搭建完环境后，怎么能让博客空空如也呢，当然是满怀期待地想要写下自己第一篇博客啦。通过</p>
+
+<p><code>rake new_post['titleName']</code></p>
+
+<p>命令来建立博客，其中titleName不能包含中文、特殊符号，尽量也不要空格。执行完这条命令后，在<code>octopress/source/_post</code>文件夹下会生成一个<code>titleName.markdown</code>的文件，这个markdown文件需要用markdown语法来编写。采用markdown体现了octopress框架的设计理念，它想使用者纯文本编写博客，包括图片、视频等资源都可以用文本生成，让我们注重博客的内容，而不是排版等问题，提高博客的质量。</p>
+
+<h2><font color="#008000">#</font> MarkDown代码高亮</h2>
+
+<p>　　markdown文件本身可以用编辑器(Editplus或者Nodepad++都可以)打开编辑，也可以用上篇博客中提供的安装包中的markdownpad打开，这款markdownpad的优点就是可以实时预览效果，安装就不再多说了，win10的用户安装完后打开编辑可能会出bug，此时再安装工具包中的awesomium_sdk就行了。关于markdown语法可以查看这里<a href="http://">(点击我)</a>的一篇博客学习,学过html的人几分钟就可以上手。</p>
+
+<p>　　对于程序猿来说还是特别说明处理代码块的问题，首先插入代码的语法有三种：</p>
+
+<pre><code>    void hello(){
+        printf("hello world");
+    }
+</code></pre>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/one.png" alt="one" /></p>
+
+<p>第一，在每一行的开始按一下Tab键，然后输入代码。优点是快速方便，缺点是不支持语法高亮和代码行数，这对程序猿来说无疑是致命打击。</p>
+
+<pre><code>```c This is a c http://www.baidu.com link
+    void hello(){
+        printf("hello world");
+    }
+```
+</code></pre>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/two.png" alt="two" /></p>
+
+<p>第二，用上下三个反引号(英文状态下Esc下面一个按键)包含住代码。相对上面一种的优点是不用Tab键，它可以支持代码行数、根据指定语言显示语法高亮，还支持代码标题和链接。</p>
+
+<pre><code>&lt;div class='bogus-wrapper'&gt;&lt;notextile&gt;&lt;figure class='code'&gt;&lt;figcaption&gt;&lt;span&gt;This is a c&lt;/span&gt;&lt;a href='http://www.baidu.com'&gt;link &lt;/a&gt;&lt;/figcaption&gt;&lt;div class="highlight"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="gutter"&gt;&lt;pre class="line-numbers"&gt;&lt;span class='line-number'&gt;1&lt;/span&gt;
+</code></pre>
+
+<p><span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'>        <span class="kt">void</span> <span class="nf">hello</span> <span class="p">(){</span>
+</span><span class='line'>          <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>  <br/>
+</span><span class='line'><br/>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<img src="http://7xwg81.com1.z0.glb.clouddn.com/two.png" alt="three" /></p>
+
+<p>第三种，写法上和第二种不一样，但是它的效果和第二种是相同的。</p>
+
+<p>在编写完markdown文件后，想要在浏览器上看到效果，必须先用<code>rake generate</code>重新生成网页，再<code>rake preview</code>进行预览。还需提醒的是，虽然markdown代码本身像html一样，对于错误不敏感。但是当我们用<code>rake generate</code>生成网页时，一旦出现语法错误，那么生成网页就会失败，访问时也会出现空白页。可能你在以上使用这第二方法处理代码，进行浏览器预览时就出现空白页，并且gitbash中会提示404的错误。如下：</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/twofile.png" alt="twofile" /></p>
+
+<p>在使用第三种方法处理代码时，在生成网页文件时gitbash中提示错误，并且预览时也是一片空白。如下：</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/threefile.png" alt="threefile" /></p>
+
+<p>作为一个程序猿，如果代码不能高亮，那么要这个博客还有何用？其实这也是大坑之一，我不知道这是版本原因还是国内下载时的网络原因，在安装后实际上是缺少了<code>Pygments</code>这款提供代码高亮的组件，所以我们要手动添加上去。</p>
+
+<h3>1.安装Python</h3>
+
+<p>　　安装Python相对比较简单，只需要一直按next就行了。安装时注意下安装路径，因为安装完成后，还需要添加环境变量。具体如下：</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/py01.png" alt="py01" /></p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/py02.png" alt="py01" /></p>
+
+<p>安装后还要添加环境变量，鼠标右击"我的电脑"->属性->高级系统设置->环境变量，然后在系统变量中找到Path，双击进入编辑，再把Python的安装路径添加上去就行。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/py03.png" alt="py01" /></p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/py04.png" alt="py01" /></p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/py05.png" alt="py01" /></p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/py06.png" alt="py01" /></p>
+
+<p>添加环境变量时对于win10来说还是不容易出错的，只需要把安装路径增加上去即可。但是windowns其他版本添加环境变量时建议在Path的末尾添加路径，比如 <code>;C:\Python27</code>，每个路径前都是有一个英文状态下的分号<code>;</code>的。想知道安装、添加环境变量成功没，可以<code>win+R</code>打开CMD，输入</p>
+
+<p><code>python -V</code></p>
+
+<p>若输出python的版本号即为成功。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/py07.png" alt="py07" /></p>
+
+<h3>2.安装pip工具</h3>
+
+<p> 　　网上很多资料都说使用 <code>easy_install</code> 安装<code>Pygments</code>，但那种方法已经过时，<code>pip</code>早已成为<code>easy_install</code>的替代品。从 <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip">http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip</a> 下载pip最新的安装文件 <code>pip-8.1.2-py2.py3-none-any.whl</code>（在我提供的安装包中也有） ，放在Python根目录中。打开cmd窗口，进入到Python的目录下，执行</p>
+
+<p><code>python pip-8.1.2-py2.py3-none-any.whl/pip install pip-8.1.2-py2.py3-none-any.whl</code></p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/pipinstall.png" alt="pipinstall" /></p>
+
+<p>安装后会在Python的目录下新生成一个Scripts的文件夹，里面是一些Python的工具集，其中就有刚安装的pip工具。进入到Scripts文件夹，执行</p>
+
+<p><code>pip --version</code></p>
+
+<p>输入pip的版本号即为安装成功。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/pipsuccess.png" alt="pipsuccess" /></p>
+
+<h3>3.安装pygments</h3>
+
+<p>　　安装完pip安装工具后就可以很轻松的安装pygments。打开CMD，依旧是进入到Python\Scripts文件夹下，执行</p>
+
+<p><code>pip install Pygments</code></p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/pygmentsinstall.png" alt="pygmentsinstall" /></p>
+
+<p>等待安装完后，再使用以上提到的第二、三种方法处理代码时就可以看到效果啦~</p>
+
+<h2><font color="#008000">#</font> 一些建议</h2>
+
+<p>　　在新建博客或者单页面时，实际上是先生成markdown文件，再通过<code>rake generate</code>命令才生成的网页文件，这是两个独立的过程。还记得刚开始介绍octopress时说，这是一个静态化博客系统，也就是说它本身没有数据库，也没有数据交换。所以我们尽量把图片、视频等资源托管到云存储中，然后对这些资源生成一个外链，在编写markdown时直接引用这个外链即可，以减轻博客服务器的压力。国内类似的云存储有七牛、又拍云等，不仅操作简单而且稳定。我没有收到一分钱广告费&hellip;下一篇将讲解如何给博客添加社会化分享以及评论功能。</p>
+
+<p>如果有错，或者有问题的欢迎在下方评论提出，谢谢。</p>
+
+<hr />
+
+<h3>在此要感谢以下博客提供参考：</h3>
+
+<p><a href="http://lutaf.com/markdown-simple-usage.htm">http://lutaf.com/markdown-simple-usage.htm</a></p>
+
+<p><a href="http://blog.csdn.net/kong5090041/article/details/38408211">http://blog.csdn.net/kong5090041/article/details/38408211</a></p>
+
+<p><a href="http://pygments.org/">http://pygments.org/</a></p>
+
+  
+  
+</div><!-- /.entry-content -->
+
+
+
+
+
+</article><!-- /.hentry -->
 
 <article class="hentry">
   
@@ -222,6 +406,10 @@
 
 <p><img src="http://7xwg81.com1.z0.glb.clouddn.com/gem_sources.png" alt="gem_sources" /></p>
 
+<p>修改完上面之后，还需要在octopress文件夹内找到并打开Gemfile文件，在第一行修改镜像源路径为<code>http://gems.ruby-china.org</code>，如下：</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/Gemfile.png" alt="Gemfile" /></p>
+
 <p>确认无误后，继续输入</p>
 
 <p><code>gem install bundler</code></p>
@@ -234,7 +422,7 @@
 
 <p><img src="http://7xwg81.com1.z0.glb.clouddn.com/Bundle_install.png" alt="Bundle_install" /></p>
 
-<p>　　这里说下题外话，因为octopress是基于jeky的(jeky也是一个博客框架)，所以会安装jeky的一些组件，还有就是sass是用来生成css样式文件的。感兴趣的可以再去了解。</p>
+<p>　　这里说下题外话，因为octopress是基于jekyll的(jekyll也是一个博客框架)，所以会安装jekyll的一些组件，还有就是sass是用来生成css样式文件的。感兴趣的可以再去了解。</p>
 
 <p>　　以上都安装完后，环境就差不多了。我们一开始在介绍octopress时提到过，通过<code>rake generate</code>会在octopress\public的文件夹内生成博客网页。那我们就用<code>rake generate</code>命令测试下，有的可能会提示rake未安装，那么就先输入<code>rake install</code>安装一下，再执行以上命令。</p>
 

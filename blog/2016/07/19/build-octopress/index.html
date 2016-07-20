@@ -199,6 +199,10 @@
 
 <p><img src="http://7xwg81.com1.z0.glb.clouddn.com/gem_sources.png" alt="gem_sources" /></p>
 
+<p>修改完上面之后，还需要在octopress文件夹内找到并打开Gemfile文件，在第一行修改镜像源路径为<code>http://gems.ruby-china.org</code>，如下：</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/Gemfile.png" alt="Gemfile" /></p>
+
 <p>确认无误后，继续输入</p>
 
 <p><code>gem install bundler</code></p>
@@ -211,7 +215,7 @@
 
 <p><img src="http://7xwg81.com1.z0.glb.clouddn.com/Bundle_install.png" alt="Bundle_install" /></p>
 
-<p>　　这里说下题外话，因为octopress是基于jeky的(jeky也是一个博客框架)，所以会安装jeky的一些组件，还有就是sass是用来生成css样式文件的。感兴趣的可以再去了解。</p>
+<p>　　这里说下题外话，因为octopress是基于jekyll的(jekyll也是一个博客框架)，所以会安装jekyll的一些组件，还有就是sass是用来生成css样式文件的。感兴趣的可以再去了解。</p>
 
 <p>　　以上都安装完后，环境就差不多了。我们一开始在介绍octopress时提到过，通过<code>rake generate</code>会在octopress\public的文件夹内生成博客网页。那我们就用<code>rake generate</code>命令测试下，有的可能会提示rake未安装，那么就先输入<code>rake install</code>安装一下，再执行以上命令。</p>
 
@@ -247,6 +251,14 @@
     </div><!-- /.entry-content -->
     
       <div class="read-more">
+        
+          <div class="read-more-header">
+            <a href="/blog/2016/07/20/handle-octopress/" class="btn">Read More</a>
+          </div><!-- /.read-more-header -->
+          <div class="read-more-content">
+            <h3><a href="/blog/2016/07/20/handle-octopress/" title="octopress下新建单页面于博客">octopress下新建单页面于博客</a></h3>
+            <p>## # Octopress的一些基本操作 ##### 1. 提高加载速度 ###　　上一篇中提出，为什么只是一个静态的网页，在没有大量的图片、视频资源，也不用访问数据库的情况下需要加载这么长时间。打开浏览器，按`F12`打开控制台，点击Network观察加载数据。![ &hellip;&hellip; <a href="/blog/2016/07/20/handle-octopress/"> Continue reading</a></p>
+          </div><!-- /.read-more-content -->
         
         <div class="read-more-list">
           
