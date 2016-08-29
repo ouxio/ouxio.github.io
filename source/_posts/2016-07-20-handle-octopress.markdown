@@ -1,0 +1,147 @@
+---
+layout: post
+title: "Octopress(二) 新建单页面与博客"
+date: 2016-07-20 13:56:26 +0800
+comments: true
+categories: [octopress]
+---
+## <font color="#008000">#</font> Octopress的一些基本操作 ##
+### 1. 提高加载速度 ###
+　　上一篇中提出，为什么只是一个静态的网页，在没有大量的图片、视频资源，也不用访问数据库的情况下需要加载这么长时间。打开浏览器，按`F12`打开控制台，点击Network观察加载数据。
+
+![preview](http://7xwg81.com1.z0.glb.clouddn.com/preview.png)
+
+查看后终于发现罪魁祸首，原来就是这个jquery文件，加载了足足21秒，21秒可以干什么？国足都可以拿下一球了。知道了问题的根源后，就要去解决问题。在octopress框架下，主要操作的就是source文件夹。在`octopress\source\_includes`文件夹下找到`head.html`文件打开，在25行位置发现jquery的在线加载路径，一看是google..不由感叹，真是万里长城永不倒呀。修改为可加载的路径。可以修改到国内的，比如百度，或者jquery官网的：`//code.jquery.com/jquery-1.9.1.min.js`。为了避免不必要的问题，jquery的版本最好也是1.9.1的。
+
+![change_jquery](http://7xwg81.com1.z0.glb.clouddn.com/changeJquery.png)
+
+然后再执行`rake generate`重新生成网页，记住，每次修改过文件最好都重新生成网页文件。再通过`rake preview`预览，这次会发现加载远远比第一次要快得多。
+
+### 2.新建单页面 ###
+　　在新建博客之前，先来认识下单页面。单页面可以理解为在导航栏中的一个导航，比如"关于"等其他页面，它不是博客。通过
+
+`rake new_page['pageName']`
+
+来创建一个新的单页面。其中pageName不能包含中文、特殊符号，尽量也不要空格。执行完命令后，在`octopress\source`文件夹下会新生成一个文件夹，文件夹的名字就是你的命令中的pageName，其中里面只包含一个`index.markdown`的文件。这个markdown文件怎么编写，和博客网页又有什么关系呢，下面会说明。
+
+### 3. 新建博客 ###
+　　搭建完环境后，怎么能让博客空空如也呢，当然是满怀期待地想要写下自己第一篇博客啦。通过
+
+`rake new_post['titleName']`
+
+命令来建立博客，其中titleName不能包含中文、特殊符号，尽量也不要空格。执行完这条命令后，在`octopress/source/_post`文件夹下会生成一个`titleName.markdown`的文件，这个markdown文件需要用markdown语法来编写。采用markdown体现了octopress框架的设计理念，它想使用者纯文本编写博客，包括图片、视频等资源都可以用文本生成，让我们注重博客的内容，而不是排版等问题，提高博客的质量。
+
+## <font color="#008000">#</font> 编写MarkDown ##
+
+　　markdown文件本身可以用编辑器(Editplus或者Nodepad++都可以)打开编辑，也可以用上篇博客中提供的安装包中的markdownpad打开，这款markdownpad的优点就是可以实时预览效果，安装就不再多说了，win10的用户安装完后打开编辑可能会出bug，此时再安装工具包中的awesomium_sdk就行了。打开markdown文件可以看到一些初始化信息，这些信息可以再手动更改，尽量不要删除。
+
+![markdownfirst](http://7xwg81.com1.z0.glb.clouddn.com/markdownaction.png)
+
+　　解析一下，其中layout是生成这个网页文件时采取什么布局，这里默认是post，因为我们就是新建的博客，如果是单页面，那么这里就是page。title默认是命令新建博客时的titleName，开始提过不能设置中文是因为后期会根据titleName来决定访问路径，而此时在markdown文件的title是可以修改成自己博客的标题的。date就是生成博客的时间，尽量按照默认的格式不要改。还有就是comments为true，设置允许评论，博客时默认true，而单页面默认是false，也就是不允许评论。categories是这篇博客的分类，可以允许设置多个分类，只要分类之间用逗号分隔开就行。
+
+　　了解初始化信息后，可以在下面编写博客的内容。关于markdown语法可以查看这里<https://www.zybuluo.com/AntLog/note/63228> 的一篇博客学习,学过html的人几分钟就可以上手。
+
+　　作为程序猿还是特别说明处理代码块的问题，首先插入代码的语法有三种：
+
+		void hello(){
+			printf("hello world");
+		}
+
+![one](http://7xwg81.com1.z0.glb.clouddn.com/onef.png)
+
+第一，在每一行的开始按一下Tab键，然后输入代码。优点是快速方便，缺点是不支持语法高亮和代码行数，这对程序猿来说无疑是致命打击。
+
+	```c This is a c http://www.baidu.com link
+		void hello(){
+			printf("hello world");
+		}
+	```
+![two](http://7xwg81.com1.z0.glb.clouddn.com/two.png)
+
+第二，用上下三个反引号(英文状态下Esc下面一个的按键)包含住代码。可以在开始的三个反引号后指定语言，代码标题和链接。相对上面一种的优点是不用Tab键，它不仅支持显示代码行数，而且还支持语法高亮。
+
+```c
+{% codeblock lang:c This is a c http://www.baidu.com link %}
+	void hello (){
+		printf("hello world");
+	}
+{% endcodeblock %}
+```
+
+![three](http://7xwg81.com1.z0.glb.clouddn.com/two.png)
+
+
+第三种，写法上和第二种不一样。用一对大括号后跟百分号组成包含代码的开始标签，开始标签内可以设置语言类型以及标题等，以一对大括号后跟百分号组成结束标签。它的效果和第二种是相同的。
+
+在编写完markdown文件后，想要在浏览器上看到效果，必须先用`rake generate`重新生成网页，再`rake preview`进行预览。还需提醒的是，虽然markdown代码本身像html一样，对于错误不敏感。但是当我们用`rake generate`生成网页时，一旦出现语法错误，那么生成网页就会失败，访问时也会出现空白页。可能你在以上使用这第二方法处理代码，进行浏览器预览时就出现空白页，并且gitbash中会提示404的错误。如下：
+
+![twofile](http://7xwg81.com1.z0.glb.clouddn.com/twofile.png)
+
+在使用第三种方法处理代码时，在生成网页文件时gitbash中提示错误，并且预览时也是一片空白。如下：
+
+![threefile](http://7xwg81.com1.z0.glb.clouddn.com/threefile.png)
+
+作为一个程序猿，如果代码不能高亮，那么要这个博客还有何用？其实这也是大坑之一，我不知道这是版本原因还是国内下载时的网络原因，在安装后实际上是缺少了`Pygments`这款提供代码高亮的组件，所以我们要手动添加上去。
+
+### 1.安装Python ###
+　　安装Python相对比较简单，只需要一直按next就行了。安装时注意下安装路径，因为安装完成后，还需要添加环境变量。具体如下：
+
+![py01](http://7xwg81.com1.z0.glb.clouddn.com/py01.png)
+
+![py01](http://7xwg81.com1.z0.glb.clouddn.com/py02.png)
+
+
+安装后还要添加环境变量，鼠标右击"我的电脑"->属性->高级系统设置->环境变量，然后在系统变量中找到Path，双击进入编辑，再把Python的安装路径添加上去就行。
+
+![py01](http://7xwg81.com1.z0.glb.clouddn.com/py03.png)
+
+![py01](http://7xwg81.com1.z0.glb.clouddn.com/py04.png)
+
+![py01](http://7xwg81.com1.z0.glb.clouddn.com/py05.png)
+
+![py01](http://7xwg81.com1.z0.glb.clouddn.com/py06.png)
+
+添加环境变量时对于win10来说还是不容易出错的，只需要把安装路径增加上去即可。但是windowns其他版本添加环境变量时建议在Path的末尾添加路径，比如 `;C:\Python27`，每个路径前都是有一个英文状态下的分号`;`的。想知道安装、添加环境变量成功没，可以`win+R`打开CMD，输入
+
+`python -V`
+
+若输出python的版本号即为成功。
+
+![py07](http://7xwg81.com1.z0.glb.clouddn.com/py07.png)
+
+### 2.安装pip工具 ###
+
+ 　　网上很多资料都说使用 `easy_install` 安装`Pygments`，但那种方法已经过时，`pip`早已成为`easy_install`的替代品。从 <http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip>下载pip最新的安装文件 `pip-8.1.2-py2.py3-none-any.whl`（在我提供的安装包中也有） ，放在Python根目录中。打开cmd窗口，进入到Python的目录下，执行
+
+`python pip-8.1.2-py2.py3-none-any.whl/pip install pip-8.1.2-py2.py3-none-any.whl`
+
+![pipinstall](http://7xwg81.com1.z0.glb.clouddn.com/pipinstall.png)
+
+安装后会在Python的目录下新生成一个Scripts的文件夹，里面是一些Python的工具集，其中就有刚安装的pip工具。进入到Scripts文件夹，执行
+
+`pip --version`
+
+输入pip的版本号即为安装成功。
+
+![pipsuccess](http://7xwg81.com1.z0.glb.clouddn.com/pipsuccess.png)
+
+### 3.安装pygments ###
+　　安装完pip安装工具后就可以很轻松的安装pygments。打开CMD，依旧是进入到Python\Scripts文件夹下，执行
+
+`pip install Pygments`
+
+![pygmentsinstall](http://7xwg81.com1.z0.glb.clouddn.com/pygmentsinstall.png)
+
+等待安装完后，再使用以上提到的第二、三种方法处理代码时就可以看到效果啦~
+
+## <font color="#008000">#</font> 一些建议 ##
+　　在新建博客或者单页面时，实际上是先生成markdown文件，再通过`rake generate`命令才生成的网页文件，这是两个独立的过程。还记得刚开始介绍octopress时说，这是一个静态化博客系统，也就是说它本身没有数据库，也没有数据交换。所以我们尽量把图片、视频等资源托管到云存储中，然后对这些资源生成一个外链，在编写markdown时直接引用这个外链即可，以减轻博客服务器的压力。国内类似的云存储有七牛、又拍云等，不仅操作简单而且稳定。我没有收到一分钱广告费...下一篇将讲解如何给博客添加社会化分享以及评论功能。
+
+如果有错，或者有问题的欢迎在下方评论提出，谢谢。
+
+----------
+
+### 在此要感谢以下博客提供参考： ###
+<http://pygments.org/>
+<http://blog.csdn.net/kong5090041/article/details/38408211>
+<http://blog.sciencenet.cn/home.php?mod=space&uid=1181151&do=blog&id=865515>
