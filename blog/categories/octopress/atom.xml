@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Xio's Life]]></title>
   <link href="http://ouxio.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ouxio.github.io/"/>
-  <updated>2016-07-20T15:38:43+08:00</updated>
+  <updated>2016-08-29T21:54:31+08:00</updated>
   <id>http://ouxio.github.io/</id>
   <author>
     <name><![CDATA[Xio]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Octopress下新建单页面与博客]]></title>
+    <title type="html"><![CDATA[Octopress(二) 新建单页面与博客]]></title>
     <link href="http://ouxio.github.io/blog/2016/07/20/handle-octopress/"/>
     <updated>2016-07-20T13:56:26+08:00</updated>
     <id>http://ouxio.github.io/blog/2016/07/20/handle-octopress</id>
@@ -172,7 +172,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[搭建octopress环境]]></title>
+    <title type="html"><![CDATA[Octopress(一) 搭建octopress环境]]></title>
     <link href="http://ouxio.github.io/blog/2016/07/19/build-octopress/"/>
     <updated>2016-07-19T13:39:42+08:00</updated>
     <id>http://ouxio.github.io/blog/2016/07/19/build-octopress</id>

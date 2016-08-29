@@ -16,7 +16,7 @@
 
 
 
-<meta name="description" content="July 20, 2016 Xio Octopress下新建单页面与博客 # Octopress的一些基本操作 1. 提高加载速度 　　上一篇中提出，为什么只是一个静态的网页，在没有大量的图片、视频资源，也不用访问数据库的情况下需要加载这么长时间。打开浏览器，按F12打开控制台， &hellip;">
+<meta name="description" content="August 29, 2016 Xio Octopress(三) 个性化博客 　　这几个星期都在忙学校的项目，所以博客这边就耽搁了，实在是不好意思。看着有一天空就赶紧把octopress系列的博客更新一下。 # 添加评论插件 　　在自定义之前先要要了解一个主配置文件， &hellip;">
 
 <meta name="keywords" content=" ">
 
@@ -34,7 +34,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://ouxio.github.io">
 <meta property="og:title" content="Xio's Life">
-<meta property="og:description" content="July 20, 2016 Xio Octopress下新建单页面与博客 # Octopress的一些基本操作 1. 提高加载速度 　　上一篇中提出，为什么只是一个静态的网页，在没有大量的图片、视频资源，也不用访问数据库的情况下需要加载这么长时间。打开浏览器，按F12打开控制台， &hellip;">
+<meta property="og:description" content="August 29, 2016 Xio Octopress(三) 个性化博客 　　这几个星期都在忙学校的项目，所以博客这边就耽搁了，实在是不好意思。看着有一天空就赶紧把octopress系列的博客更新一下。 # 添加评论插件 　　在自定义之前先要要了解一个主配置文件， &hellip;">
 
   <meta property="og:image" content="/images/threaded-blue-on-black-cropped.jpg">
 
@@ -104,6 +104,146 @@
 <header>
   <div class="entry-meta">
     <span class="entry-date date published updated">
+      <time datetime="2016-08-29T21:51:09+08:00">
+        <a href="/blog/2016/08/29/change-style/">August 29, 2016</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Xio">Xio</a>
+      </span>
+    </span>
+    
+  </div><!-- /.entry-meta -->
+  
+    <h1 class="entry-title">
+      <a href="/blog/2016/08/29/change-style/" rel="bookmark" title="Octopress(三) 个性化博客" itemprop="url">Octopress(三) 个性化博客</a>
+    </h1>
+  
+</header>
+
+<div class="entry-content">
+  <p>　　这几个星期都在忙学校的项目，所以博客这边就耽搁了，实在是不好意思。看着有一天空就赶紧把octopress系列的博客更新一下。</p>
+
+<h2><font color="#008000">#</font> 添加评论插件</h2>
+
+<p>　　在自定义之前先要要了解一个主配置文件，就是在occpress文件夹下的 <code>_config.yml</code> 文件。打开这文件观察一下，可以发现有一些基本的配置属性，比如博客的title，subtitle等。我们可以根据自己的喜好来修改这些属性，其中 <code>simple_search</code> 这个属性中的google搜索在国内并不友好，所以可以改成其他的搜索引擎，比如百度。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/config01.png" alt="config01" /></p>
+
+<p>还有一些常用的功能开关。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/config02.png" alt="config02" /></p>
+
+<p>　　在上诉的主配置文件中，有twitter、google..等待其他功能开关，细心的同学可能看到名为disqus的功能开关。是的，其实它就是octopress的默认评论插件，只是在国内也是相当不友好。我们可以把它修改成国内比较好用的评论系统，比如多说等。</p>
+
+<p>　　OK，想自定义博客首先要修改<code>_config.yml</code>主配置文件。刚我们说了，disqus是默认的评论系统，但国内并不能用。我们可以在文件末尾根据格式创建一个评论开关的名字。如下：</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/duoshuo001.png" alt="duoshuo01" /></p>
+
+<p>然后打开 <code>octopress\source\_layouts\post.html</code> 文件，把默认的disqus开关修改成我们刚创建的评论开关，具体在文件哪个部分可以看行号哈~</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/duoshuo002.png" alt="duoshuo02" /></p>
+
+<p>根据以上修改的 `<!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="/blog/2016/08/29/change-style" data-title="Octopress(三) 个性化博客" data-url="http://ouxio.github.io/blog/2016/08/29/change-style/"></div></p>
+
+<!-- 多说评论框 end -->
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+
+
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xioblog"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+<!-- 多说公共JS代码 end -->
+
+
+<p><code>这个路径相信可以猜到，我们要在</code>octopress\source_includes\post<code>文件夹下新创建一个</code>duoshuo_comment.html` 的文件来装载我们自己的评论插件代码。</p>
+
+<p>　　想要使用多说评论插件首先要在多说注册一个账号。百度多说进入官网，可以用QQ什么的直接登录，然后点击开发者文档，滚到下面，在左侧的安装帮助里点击"discuz通用代码"。在【准备工作】中，点击"获取多说通用代码"的链接。就进入创建站点的页面，输入基本信息。创建完站点后，导航栏会多出一个"后台管理"的标签，里面会有一个刚创建的名称。再点击进去，在左侧点击"工具"，就会看到一段代码，我们直接复制过来，粘贴到我们刚创建的html文件中。最后把需要修改的地方修改过来。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/duoshuo03.png" alt="duoshuo03" /></p>
+
+<p>　　如果以上流程没有出错的话，重新生成网页，再执行预览。点进一篇博客后，应该就可以看到多说评论区域。</p>
+
+<h2><font color="#008000">#</font> 添加社会化分享</h2>
+
+<p>　　添加社会化分享和添加评论插件过程差不多。首先在 <code>_config.yml</code> 主配置文件添加一个分享的开关。</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/share01.png" alt="share01" /></p>
+
+<p>然后打开 <code>octopress\source\_includes\post\sharing.html</code> 文件，我们可以发现，其实它已经有默认的分享插件，只是和评论插件一样，在国内不友好。我们可以不理会，直接在下面再添加自己的分享开关。如下：</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/share02.png" alt="share02" /></p>
+
+<p>是的，接下来的操作和操作评论插件一样，在 <code>octopress\source\_includes\post</code>
+文件夹下，新创建一个 <code>jia_share.html</code> 的文件。那么里面的内容呢？打开 <a href="http://www.jiathis.com/">http://www.jiathis.com/</a> ，选择自己想要的样式，然后复制代码到 <code>jia_share.html</code> 保存就完成了。</p>
+
+<p>　　最后重新生成网页，执行预览，点进一篇博客中去，查看效果。在刚添加的评论上应该就可以看到分享按钮了。</p>
+
+<h2><font color="#008000">#</font> 自定义导航栏</h2>
+
+<p>　　自定义导航栏相比之前两个比较简单。打开 <code>octopress\source\_includes\custom</code> 文件夹，找到 <code>navigation.html</code> 文件，发现就只有几行代码，而且还可以看到非常熟悉的两个关键字，Blog和Archives。这不就是每次打开博客首页时，导航栏上的两个按钮吗。看到这就嗨心了，直接复制一行，然后修改导航名字和链接。但是链接到哪去呢？还记得在第二篇介绍octopress时新建的单页面吗？（不记得的返回去看）在新建单页面后会在 <code>octopress\source</code> 新生成一个文件夹，里面只包含一个 <code>index.html</code> 的文件。此时我就可以应用到导航栏中。修改如下：</p>
+
+<p><img src="http://7xwg81.com1.z0.glb.clouddn.com/navigation01.png" alt="navigation01" /></p>
+
+<p>最后重新生成网页，执行预览。打开就会发现在导航栏中多出一个导航按钮，点进去，就是我们新建的单页面。</p>
+
+<h2><font color="#008000">#</font> 自定义主题</h2>
+
+<p>　　即使修改了以上的一些简单的配置后，你还意犹未尽。觉得这个博客简直是太TM难看了，对比其他人的博客真是弱爆了。别急，让我们来一个大修改，让你的博客变的与众不同。Octopress提供了很多不错的主题样式供我们选择，但是必须说明的是，在应用这些主题之前最好先备份一下你的octopress文件夹。因为在应用主题之后它会覆盖掉我们之前上面所做的所有修改，当然，不包括博客内容，只是样式。</p>
+
+<p>　　在使用新主题前，我们可以发现在 <code>octopress</code> 下有一个 <code>.themes</code> 的文件夹，懂英语的人都明白这是主题的意思。打开发现，里面只有一个classic的文件夹。是的，这就是我们现在应用的主题（是不是很难看(¬_¬)..）。好了，那我么就换掉这个主题。打开gitbase，进入到octopress文件夹内，然后输入以下代码：</p>
+
+<p><code>git clone git://github.com/gluttony/object-octopress-theme.git .themes/object</code></p>
+
+<p>然后等待下载主题。解释一下，<code>git clone</code> 这不用说了吧，就是克隆。 <code>git://github.com/libingcun/libingcun-octopress-theme.git</code> 这段就是克隆源的地址 <code>.themes/libingcun-octopress-theme</code> 就是克隆到哪，即目标地址。下载完毕后，会在 <code>.themes</code> 文件夹下新生成一个 <code>libingcun-octopress-theme</code> 主题文件夹,其实就是主题的名字。</p>
+
+<p>接着，在gitbas中再执行</p>
+
+<p><code>rake install['themeName']</code></p>
+
+<p>输入以上命令后，等半天没反应&hellip;输入 <code>y</code> 确认继续安装。</p>
+
+<p>完成后，再重新生成网页，执行预览查看，就会看到新的主题博客啦！！但是之前设置的评论和分享都没了。如果你想有评论和分享，那么请再做一遍上面的步骤。呵呵，我就是故意把主题放在最后讲的。(微笑脸.jpg)</p>
+
+<p>好吧，为了弥补过错。我分享一个主题集吧~大家可以在里面找到漂亮的主题哟。
+<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes</a></p>
+
+<p>下一篇将讲解如何把自己的博客放到外网上，供其他人访问。</p>
+
+<p>如果有任何问题，欢迎在下方评论提出，谢谢。</p>
+
+  
+  
+</div><!-- /.entry-content -->
+
+
+
+
+
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
       <time datetime="2016-07-20T13:56:26+08:00">
         <a href="/blog/2016/07/20/handle-octopress/">July 20, 2016</a>
       </time>
@@ -117,7 +257,7 @@
   </div><!-- /.entry-meta -->
   
     <h1 class="entry-title">
-      <a href="/blog/2016/07/20/handle-octopress/" rel="bookmark" title="Octopress下新建单页面与博客" itemprop="url">Octopress下新建单页面与博客</a>
+      <a href="/blog/2016/07/20/handle-octopress/" rel="bookmark" title="Octopress(二) 新建单页面与博客" itemprop="url">Octopress(二) 新建单页面与博客</a>
     </h1>
   
 </header>
@@ -309,7 +449,7 @@
   </div><!-- /.entry-meta -->
   
     <h1 class="entry-title">
-      <a href="/blog/2016/07/19/build-octopress/" rel="bookmark" title="搭建octopress环境" itemprop="url">搭建octopress环境</a>
+      <a href="/blog/2016/07/19/build-octopress/" rel="bookmark" title="Octopress(一) 搭建octopress环境" itemprop="url">Octopress(一) 搭建octopress环境</a>
     </h1>
   
 </header>
