@@ -16,7 +16,7 @@
 
 
 
-<meta name="description" content="August 29, 2016 Xio Octopress(三) 个性化博客 　　这几个星期都在忙学校的项目，所以博客这边就耽搁了，实在是不好意思。看着有一天空就赶紧把octopress系列的博客更新一下。 # 添加评论插件 　　在自定义之前先要要了解一个主配置文件， &hellip;">
+<meta name="description" content="August 29, 2016 Xio Octopress(三) 个性化博客 　　　　这几个星期都在忙学校的项目，所以博客这边就耽搁了，实在是不好意思。看着有一天空就赶紧把octopress系列的博客更新一下。 # 添加评论插件 　　在自定义之前先要要了解一个主配置文件， &hellip;">
 
 <meta name="keywords" content=" ">
 
@@ -34,7 +34,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://ouxio.github.io">
 <meta property="og:title" content="Xio's Life">
-<meta property="og:description" content="August 29, 2016 Xio Octopress(三) 个性化博客 　　这几个星期都在忙学校的项目，所以博客这边就耽搁了，实在是不好意思。看着有一天空就赶紧把octopress系列的博客更新一下。 # 添加评论插件 　　在自定义之前先要要了解一个主配置文件， &hellip;">
+<meta property="og:description" content="August 29, 2016 Xio Octopress(三) 个性化博客 　　　　这几个星期都在忙学校的项目，所以博客这边就耽搁了，实在是不好意思。看着有一天空就赶紧把octopress系列的博客更新一下。 # 添加评论插件 　　在自定义之前先要要了解一个主配置文件， &hellip;">
 
   <meta property="og:image" content="/images/threaded-blue-on-black-cropped.jpg">
 
@@ -123,7 +123,7 @@
 </header>
 
 <div class="entry-content">
-  <p>　　这几个星期都在忙学校的项目，所以博客这边就耽搁了，实在是不好意思。看着有一天空就赶紧把octopress系列的博客更新一下。</p>
+  <p>　　　　这几个星期都在忙学校的项目，所以博客这边就耽搁了，实在是不好意思。看着有一天空就赶紧把octopress系列的博客更新一下。</p>
 
 <h2><font color="#008000">#</font> 添加评论插件</h2>
 
@@ -145,32 +145,7 @@
 
 <p><img src="http://7xwg81.com1.z0.glb.clouddn.com/duoshuo002.png" alt="duoshuo02" /></p>
 
-<p>根据以上修改的 `<!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="/blog/2016/08/29/change-style" data-title="Octopress(三) 个性化博客" data-url="http://ouxio.github.io/blog/2016/08/29/change-style/"></div></p>
-
-<!-- 多说评论框 end -->
-
-
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-
-
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"xioblog"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-
-
-<!-- 多说公共JS代码 end -->
-
-
-<p><code>这个路径相信可以猜到，我们要在</code>octopress\source_includes\post<code>文件夹下新创建一个</code>duoshuo_comment.html` 的文件来装载我们自己的评论插件代码。</p>
+<p>根据以上修改的 <code>include post/duoshuo_comment.html</code> 这个路径相信可以猜到，我们要在 <code>octopress\source\_includes\post</code> 文件夹下新创建一个 <code>duoshuo_comment.html</code> 的文件来装载我们自己的评论插件代码。</p>
 
 <p>　　想要使用多说评论插件首先要在多说注册一个账号。百度多说进入官网，可以用QQ什么的直接登录，然后点击开发者文档，滚到下面，在左侧的安装帮助里点击"discuz通用代码"。在【准备工作】中，点击"获取多说通用代码"的链接。就进入创建站点的页面，输入基本信息。创建完站点后，导航栏会多出一个"后台管理"的标签，里面会有一个刚创建的名称。再点击进去，在左侧点击"工具"，就会看到一段代码，我们直接复制过来，粘贴到我们刚创建的html文件中。最后把需要修改的地方修改过来。</p>
 
